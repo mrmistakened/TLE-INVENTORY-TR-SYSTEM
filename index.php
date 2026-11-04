@@ -1,33 +1,55 @@
-<?php
 
+
+<?php
 include "conn.php";
-$sql = "SELECT * FROM inventory";
+
+if (isset($_GET["search"])) {
+
+    $id = (int) $_GET["search"];
+    $sql = "SELECT * FROM student WHERE id = $id";
+
+} else {
+
+    $sql = "SELECT * FROM student";
+
+}
+
 $result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
-    <link rel = stylesheet href = style.css>
-    <title>SMIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
 </head>
 <body>
-    <h2>School Management Inventory System</h2>
-    <br>
-      <a href="add.php">
-        <button type="button">Add Item</button>
-</a>
-<br>
-    Search Item: <input name="search"> <button name="search1" value="1">Search</button>
-    <br>
-    <br>
+
+    <h2>Student Management System</h2>
+
+    <a href="add.php">
+        <button type="button">Add Student</button>
+    </a>
+
+    <h3>Search Student</h3>
+
+    <form action="index.php" method="get">
+        Student ID:
+        <input type="number" name="search" min="1" required>
+        <button type="submit">Search</button>
+        <a href="index.php">Show All</a>
+    </form>
+
+    <br><br>
+
     <table>
         <tr>
-            <th>Item ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
             <th>Action</th>
         </tr>
 
@@ -35,30 +57,37 @@ $result = mysqli_query($conn, $sql);
 
         <tr>
             <td><?php echo $row["id"]; ?></td>
-            <td><?php echo $row["itemname"]; ?></td>
-            <td><?php echo $row["quantity"]; ?></td>
+            <td><?php echo htmlspecialchars($row["firstname"]); ?></td>
+            <td><?php echo htmlspecialchars($row["lastname"]); ?></td>
+            <td><?php echo $row["age"]; ?></td>
             <td>
-                <a href="edit.php">
-              <Button class="edit">Edit</Button>
-              </a>
-              <a href="delete.php">
-              <Button class="delete">Delete</Button>
-            </a>
-              <a href="borrow.php">
-                <button class="borrow">Borrow Item</button>
-            </a>
+                <a href="edit.php?id=<?php echo $row['id']; ?>">
+                    <button type="button" class="edit">Edit</button>
+                </a>
+
+                <form action="delete.php" method="post"
+                      onsubmit="return confirm('Are you sure you want to delete?');"
+                      style="display:inline;">
+
+                    <input type="hidden" name="id"
+                           value="<?php echo $row['id']; ?>">
+
+                    <button type="submit" name="delete" class="delete">
+                        Delete
+                    </button>
+                </form>
             </td>
         </tr>
 
         <?php } ?>
 
-          
-
-
     </table>
-    <a href="index.php">
-        <button type="logout">Log Out</button>
-</a>
+    <a href="/DELATORRE/inventory">
+        <button type="logout">Go to Inventory</button>
+        </a>
+
+        <a href="/DELATORRE/login.php">
+        <button type="button">Log Out</button>
+        </a>
 </body>
-</head>
 </html>

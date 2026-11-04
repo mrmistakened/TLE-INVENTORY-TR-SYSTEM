@@ -1,0 +1,36 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: pink;
+    margin: 0;
+    padding: 30px;
+}
+.dashboard{
+    background-color: rgb(255, 148, 166);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #ddd;
+}
+h2{
+    text-align: center;
+}
+h3{
+    background-color: rgb(239, 119, 175);
+}
+p{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #c4237e;
+}
+button{
+    background-color: #fc5ec0;
+    color: #fe97d3;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor:pointer;
+}
+button:hover{
+    background-color: rgb(249, 40, 148);
+}

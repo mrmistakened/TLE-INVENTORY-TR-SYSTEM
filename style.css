@@ -1,1 +1,48 @@
+body {
+    background-color: #FFFFFF;
+}
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px solid #7028E8;
+    padding: 10px;
+    text-align: center;
+}
+td{
+    background-color: #FFFFFF;
+    color: #29272B;
+}
+th{
+    background: #7028E8;
+    color: white;
+}
+h2{
+    text-align: center;
+    color: #7028E8;
+}
+
+.edit, .delete{
+    background: #E6D8FA;
+    color: #7028E8;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button{
+    background: #7028E8;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+
+
+
 

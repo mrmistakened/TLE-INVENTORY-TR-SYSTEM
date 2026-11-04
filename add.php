@@ -1,30 +1,27 @@
- <form method="post">
- 
- Product Name:<input name="itemname"> <br>
-    Quantity: <input name="quantity"> <br>
-    <button name="add" value="1">Add</button>
+<h3> Registration form</h3>
+<link rel="stylesheet" href="ae.css">
+<form method="post">
+  Firstname: <input name="firstname" required>
+<br>
+  lastname: <input name="lastname" required>
+<br>
+  Age: <input name="age" required>
+<br>
+  Username: <input name="username" required>
+<br>
+  Password: <input name="password" required>
+<br>
+  <button name="add" value="1">Add Student</button>
+  <br>
 
 </form>
-    
+ 
 <?php
-include "conn.php";
-$itemname = '$_POST["itemname"]';
-$Quantity = '$_POST["quantity"]';
-
 if (isset($_POST["add"])) {
-
-    $sql = "INSERT INTO inventory (itemname, quantity) VALUES ('" . $_POST["itemname"] . "' , '" . $_POST["quantity"] . "')";
-
-    mysqli_query($conn, $sql);
-    header("Location:/PIEZAS/Inventory/index.php");
-    exit();
-    
-} else {
-    echo "Error";
+  $conn = mysqli_connect("localhost", "root", "", "school_db");
+  $sql = "INSERT INTO student (firstname, lastname, age , username , password ) VALUES ('" . $_POST["firstname"] . "', '"  . $_POST["lastname"] . "', '" . $_POST["age"]. "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
+  mysqli_query($conn, $sql);
+  header("Location: index.php");
+  exit;
 }
 ?>
-
-<br>
-<a href="index.php">
-        <button type="logout">Exit</button>
-</a>
