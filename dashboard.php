@@ -1,5 +1,6 @@
 
 <h2>Student Dashboard</h2>
+ <img src="cnsf3.png" class="logo" alt="Logo">
 <link rel="stylesheet" href="dashboard.css">
 
 <?php

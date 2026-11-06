@@ -1,48 +1,121 @@
-body {
-    background-color: #FFFFFF;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
 }
-table{
-    width:100%;
+
+body {
+    background-image: url("backg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Glass container */
+.table-container {
+    width: 95%;
+    margin: 40px auto;
+    padding: 25px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+}
+
+/* Search form */
+form {
+    color: black;
+    font-size: 16px;
+}
+
+input {
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+/* Table */
+table {
+    width: 100%;
     border-collapse: collapse;
 }
-th,td{
-    border: 1px solid #7028E8;
-    padding: 10px;
+
+th, td {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 12px;
     text-align: center;
-}
-td{
-    background-color: #FFFFFF;
-    color: #29272B;
-}
-th{
-    background: #7028E8;
-    color: white;
-}
-h2{
-    text-align: center;
-    color: #7028E8;
 }
 
-.edit, .delete{
-    background: #E6D8FA;
-    color: #7028E8;
-    padding: 6px 15px;
-    border-radius: 15px;
-    font-size: 16px;
-    cursor: pointer;
-}
-button{
-    background: #7028E8;
+th {
+    background: rgba(0, 0, 0, 0.85);
     color: white;
-    padding: 6px 15px;
-    border-radius: 15px;
-    font-size: 16px;
+}
+
+td {
+    background: rgba(255, 255, 255, 0.45);
+    color: black;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Buttons */
+button {
+    background: #000000;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
     cursor: pointer;
 }
 
+button:hover {
+    background: #000000;
+}
 
+/* Edit and Delete */
+.edit, .delete {
+    padding: 7px 16px;
+    border-radius: 15px;
+    font-size: 15px;
+}
 
+.edit {
+    background: #000000;
+    color: #fffdfd;
+}
 
+.delete {
+    background: #000000;
+    color: white;
+}
 
+/* Bottom buttons */
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-
+a {
+    color: #000000;
+}

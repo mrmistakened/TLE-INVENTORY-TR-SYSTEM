@@ -1,17 +1,14 @@
 
 
+
 <?php
 include "conn.php";
 
 if (isset($_GET["search"])) {
-
     $id = (int) $_GET["search"];
     $sql = "SELECT * FROM student WHERE id = $id";
-
 } else {
-
     $sql = "SELECT * FROM student";
-
 }
 
 $result = mysqli_query($conn, $sql);
@@ -25,15 +22,12 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
 </head>
+
 <body>
 
+<div class="table-container">
+
     <h2>Student Management System</h2>
-
-    <a href="add.php">
-        <button type="button">Add Student</button>
-    </a>
-
-    <h3>Search Student</h3>
 
     <form action="index.php" method="get">
         Student ID:
@@ -54,23 +48,23 @@ $result = mysqli_query($conn, $sql);
         </tr>
 
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-
         <tr>
             <td><?php echo $row["id"]; ?></td>
             <td><?php echo htmlspecialchars($row["firstname"]); ?></td>
             <td><?php echo htmlspecialchars($row["lastname"]); ?></td>
             <td><?php echo $row["age"]; ?></td>
+
             <td>
                 <a href="edit.php?id=<?php echo $row['id']; ?>">
                     <button type="button" class="edit">Edit</button>
                 </a>
 
                 <form action="delete.php" method="post"
-                      onsubmit="return confirm('Are you sure you want to delete?');"
-                      style="display:inline;">
+                    onsubmit="return confirm('Are you sure you want to delete?');"
+                    style="display:inline;">
 
                     <input type="hidden" name="id"
-                           value="<?php echo $row['id']; ?>">
+                        value="<?php echo $row['id']; ?>">
 
                     <button type="submit" name="delete" class="delete">
                         Delete
@@ -78,16 +72,31 @@ $result = mysqli_query($conn, $sql);
                 </form>
             </td>
         </tr>
-
         <?php } ?>
-
     </table>
-    <a href="/DELATORRE/inventory">
-        <button type="logout">Go to Inventory</button>
+
+    <br><br>
+
+    <div class="bottom-buttons">
+
+        <a href="/DELATORRE/inventory">
+            <button type="button">Go to Inventory</button>
         </a>
 
         <a href="/DELATORRE/login.php">
-        <button type="button">Log Out</button>
+            <button type="button">Log Out</button>
         </a>
+
+        <a href="add.php">
+            <button type="button">Add Student</button>
+        </a>
+        <a href="export.php">
+    <button>Export to Excel</button>
+</a>
+
+    </div>
+
+</div>
+
 </body>
 </html>
