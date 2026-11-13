@@ -1,121 +1,182 @@
-
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+/* GENERAL */
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-image: url("backg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    padding: 30px;
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #F3F0F8;
 }
 
-/* Glass container */
-.table-container {
-    width: 95%;
-    margin: 40px auto;
-    padding: 25px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.30);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+/* SIDEBAR */
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #54218D;
+    padding-top: 25px;
 }
 
-/* Heading */
-h2 {
+.sidebar h2 {
+    color: white;
     text-align: center;
-    color: black;
-    font-size: 30px;
+    font-size: 21px;
+    margin-bottom: 35px;
 }
 
-/* Search form */
-form {
-    color: black;
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 16px 22px;
+    text-decoration: none;
     font-size: 16px;
+    transition: 0.3s;
 }
 
-input {
-    padding: 8px;
-    border: 2px solid black;
-    border-radius: 7px;
+.sidebar a:hover {
+    background: #7B45B5;
+    padding-left: 30px;
 }
 
-/* Table */
+.sidebar a.active {
+    background: #7B45B5;
+    border-left: 5px solid white;
+}
+
+.sidebar .logout {
+    margin-top: 35px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+/* TABLE CONTAINER */
+.table-container {
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.table-container h2 {
+    color: #54218D;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+}
+
+/* SEARCH */
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #54218D;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #7B45B5;
+}
+
+button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+form button[type="submit"] {
+    background: #54218D;
+    color: white;
+}
+
+form a {
+    color: #54218D;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid #54218D;
     padding: 12px;
     text-align: center;
 }
 
 th {
-    background: rgba(0, 0, 0, 0.85);
+    background: #54218D;
     color: white;
 }
 
 td {
-    background: rgba(255, 255, 255, 0.45);
-    color: black;
+    color: #333;
 }
 
-tr:hover td {
-    background: rgba(255, 255, 255, 0.7);
-}
-
-/* Buttons */
-button {
-    background: #000000;
-    color: white;
-    padding: 8px 18px;
-    border: none;
-    border-radius: 10px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #000000;
-}
-
-/* Edit and Delete */
-.edit, .delete {
-    padding: 7px 16px;
-    border-radius: 15px;
-    font-size: 15px;
-}
-
+/* EDIT BUTTON */
 .edit {
-    background: #000000;
-    color: #fffdfd;
-}
-
-.delete {
-    background: #000000;
+    background: #54218D;
     color: white;
 }
 
-/* Bottom buttons */
-.bottom-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+/* DELETE BUTTON */
+.delete {
+    background: #dc3545;
+    color: white;
 }
 
-a {
-    color: #000000;
+/* MOBILE RESPONSIVE */
+@media screen and (max-width: 768px) {
+
+    .sidebar {
+        width: 180px;
+    }
+
+    .sidebar h2 {
+        font-size: 16px;
+    }
+
+    .sidebar a {
+        font-size: 13px;
+        padding: 14px 10px;
+    }
+
+    .main-content {
+        margin-left: 180px;
+        padding: 10px;
+    }
+
+    .table-container {
+        padding: 12px;
+    }
+
+    table {
+        min-width: 600px;
+    }
 }

@@ -3,7 +3,7 @@ include"conn.php"
 
 if(isset($_GET["search"])){
 $id = (int) $_GET["search"];
-$sql = "SELECT * FROM student WHERE id = $id";
+$sql = "SELECT * FROM student WHERE firstname = $firstname";
 
 }else{
    $sql = "SELECT * FROM student";

@@ -1,17 +1,15 @@
-<h3> Registration form</h3>
+<h3> Users</h3>
 <link rel="stylesheet" href="ae.css">
 <form method="post">
   Firstname: <input name="firstname" required>
 <br>
   lastname: <input name="lastname" required>
 <br>
-  Age: <input name="age" required>
-<br>
   Username: <input name="username" required>
 <br>
   Password: <input name="password" required>
 <br>
-  <button name="add" value="1">Add Student</button>
+  <button name="add" value="1">Add Users</button>
   <br>
 
 </form>
